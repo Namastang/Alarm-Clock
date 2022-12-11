@@ -26,7 +26,8 @@ if (time > 0) {
 function endTimer() {
 	if (time === 0) {
   	alert("Time Up");
-    
+    const clock = document.getElementById('clock')
+    clock.src = "https://media2.giphy.com/media/l0HlKAXJfCmTH6X3W/giphy.gif?cid=ecf05e47typpjysv250xxm17mc7derzbgqkg8hg09xs7kyhj&rid=giphy.gif&ct=g";
     clearInterval(interval);
   }
 }
