@@ -39,3 +39,7 @@ function start() {
 	  interval = setInterval(ticktock, 1000);
   }
 }
+
+function restart() {
+	location.reload();
+}
