@@ -8,9 +8,11 @@ let interval;
 	It reduce the time variable by -1 and update on the page with the timer ID.
 */
 function ticktock() {
-  time = time - 1;
-  document.getElementById("timer").innerHTML = time;
-  endTimer();
+	if (time > 0) {
+    time = time - 1;
+    document.getElementById("timer").innerHTML = time;
+    endTimer();
+  }
 }
 
 
@@ -24,10 +26,12 @@ if (time > 0) {
 
 */
 function endTimer() {
-	if (time === 0) {
-  	alert("Time Up");
-    const clock = document.getElementById('clock')
-    clock.src = "https://media2.giphy.com/media/l0HlKAXJfCmTH6X3W/giphy.gif?cid=ecf05e47typpjysv250xxm17mc7derzbgqkg8hg09xs7kyhj&rid=giphy.gif&ct=g";
+	if (time <= 0) {
+  	//alert("Time Up");
+		
+    const clock = document.getElementById('clock');
+    clock.src = "https://margaret.codewizardshq.com/js_projects_for_kids/alarm/alarm.gif";
+    
     clearInterval(interval);
   }
 }
@@ -39,6 +43,15 @@ function start() {
 	  interval = setInterval(ticktock, 1000);
   }
 }
+
+function pause() {
+	clearInterval(interval);
+}
+
+function resume() {
+	interval = setInterval(ticktock, 1000);
+}
+
 
 function restart() {
 	location.reload();
